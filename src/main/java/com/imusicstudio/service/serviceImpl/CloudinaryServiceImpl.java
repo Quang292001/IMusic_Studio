@@ -20,10 +20,15 @@ public class CloudinaryServiceImpl implements CloudinaryService {
 
     public CloudinaryServiceImpl() {
         Map<String, String> config = new HashMap<>();
-        config.put("cloud_name", "dwbnrx0mg");
-        config.put("api_key", "849922747851736");
-        config.put("api_secret", "LIjweVHhRwkW5zL-8GFT6tY7E0Y");
+        config.put("cloud_name", env("CLOUDINARY_CLOUD_NAME", "dwbnrx0mg"));
+        config.put("api_key", env("CLOUDINARY_API_KEY", ""));
+        config.put("api_secret", env("CLOUDINARY_API_SECRET", ""));
         this.cloudinary = new Cloudinary(config);
+    }
+
+    private static String env(String name, String fallback) {
+        String value = System.getenv(name);
+        return value != null && !value.isEmpty() ? value : fallback;
     }
     @Override
     public String uploadImage(MultipartFile file) {
