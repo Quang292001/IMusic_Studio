@@ -22,4 +22,4 @@ Mở http://localhost:8080
 
 ## Deploy
 
-Có `Dockerfile` sẵn — deploy lên Render (Web Service, runtime Docker) với MySQL trên Aiven.
+Có `Dockerfile` sẵn — deploy lên Render (Web Service, runtime Docker) với MySQL trên TiDB Cloud Starter (miễn phí, tương thích MySQL).
